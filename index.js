@@ -2,14 +2,13 @@ require("./db/mongoose");
 
 const express = require("express");
 const User = require("./models/user");
+const router = require("./routers/router");
 
 const app = express();
 
 app.use(express.json());
 
-app.get("/users", (req, res) => {
-  res.send("hello world");
-});
+app.use(router);
 
 app.post("/signup", async (req, res) => {
   try {
